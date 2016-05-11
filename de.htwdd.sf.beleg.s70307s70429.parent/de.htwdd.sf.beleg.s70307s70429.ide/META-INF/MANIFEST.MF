@@ -9,3 +9,6 @@ Require-Bundle: de.htwdd.sf.beleg.s70307s70429,
  org.eclipse.xtext.ide,
  org.eclipse.xtext.xbase.ide
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.htwdd.sf.beleg.ide.contentassist.antlr,
+ de.htwdd.sf.beleg.ide.contentassist.antlr.internal
+
