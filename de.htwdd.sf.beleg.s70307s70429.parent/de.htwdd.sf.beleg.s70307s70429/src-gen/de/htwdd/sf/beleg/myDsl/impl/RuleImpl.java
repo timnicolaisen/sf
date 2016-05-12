@@ -3,55 +3,50 @@
  */
 package de.htwdd.sf.beleg.myDsl.impl;
 
-import de.htwdd.sf.beleg.myDsl.Greeting;
-import de.htwdd.sf.beleg.myDsl.Model;
 import de.htwdd.sf.beleg.myDsl.MyDslPackage;
+import de.htwdd.sf.beleg.myDsl.Query;
+import de.htwdd.sf.beleg.myDsl.Rule;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>Rule</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.htwdd.sf.beleg.myDsl.impl.ModelImpl#getGreetings <em>Greetings</em>}</li>
+ *   <li>{@link de.htwdd.sf.beleg.myDsl.impl.RuleImpl#getQ <em>Q</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model
+public class RuleImpl extends MinimalEObjectImpl.Container implements Rule
 {
   /**
-   * The cached value of the '{@link #getGreetings() <em>Greetings</em>}' containment reference list.
+   * The cached value of the '{@link #getQ() <em>Q</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGreetings()
+   * @see #getQ()
    * @generated
    * @ordered
    */
-  protected EList<Greeting> greetings;
+  protected Query q;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModelImpl()
+  protected RuleImpl()
   {
     super();
   }
@@ -64,7 +59,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   @Override
   protected EClass eStaticClass()
   {
-    return MyDslPackage.Literals.MODEL;
+    return MyDslPackage.Literals.RULE;
   }
 
   /**
@@ -72,13 +67,47 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Greeting> getGreetings()
+  public Query getQ()
   {
-    if (greetings == null)
+    return q;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetQ(Query newQ, NotificationChain msgs)
+  {
+    Query oldQ = q;
+    q = newQ;
+    if (eNotificationRequired())
     {
-      greetings = new EObjectContainmentEList<Greeting>(Greeting.class, this, MyDslPackage.MODEL__GREETINGS);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.RULE__Q, oldQ, newQ);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return greetings;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setQ(Query newQ)
+  {
+    if (newQ != q)
+    {
+      NotificationChain msgs = null;
+      if (q != null)
+        msgs = ((InternalEObject)q).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.RULE__Q, null, msgs);
+      if (newQ != null)
+        msgs = ((InternalEObject)newQ).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.RULE__Q, null, msgs);
+      msgs = basicSetQ(newQ, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.RULE__Q, newQ, newQ));
   }
 
   /**
@@ -91,8 +120,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case MyDslPackage.MODEL__GREETINGS:
-        return ((InternalEList<?>)getGreetings()).basicRemove(otherEnd, msgs);
+      case MyDslPackage.RULE__Q:
+        return basicSetQ(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +136,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case MyDslPackage.MODEL__GREETINGS:
-        return getGreetings();
+      case MyDslPackage.RULE__Q:
+        return getQ();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,15 +147,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case MyDslPackage.MODEL__GREETINGS:
-        getGreetings().clear();
-        getGreetings().addAll((Collection<? extends Greeting>)newValue);
+      case MyDslPackage.RULE__Q:
+        setQ((Query)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +169,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case MyDslPackage.MODEL__GREETINGS:
-        getGreetings().clear();
+      case MyDslPackage.RULE__Q:
+        setQ((Query)null);
         return;
     }
     super.eUnset(featureID);
@@ -159,10 +186,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case MyDslPackage.MODEL__GREETINGS:
-        return greetings != null && !greetings.isEmpty();
+      case MyDslPackage.RULE__Q:
+        return q != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //ModelImpl
+} //RuleImpl

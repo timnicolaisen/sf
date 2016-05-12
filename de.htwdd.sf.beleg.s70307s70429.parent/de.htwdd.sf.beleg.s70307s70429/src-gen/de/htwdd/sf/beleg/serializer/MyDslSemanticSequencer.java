@@ -4,9 +4,24 @@
 package de.htwdd.sf.beleg.serializer;
 
 import com.google.inject.Inject;
-import de.htwdd.sf.beleg.myDsl.Greeting;
-import de.htwdd.sf.beleg.myDsl.Model;
+import de.htwdd.sf.beleg.myDsl.Atom;
+import de.htwdd.sf.beleg.myDsl.Clause;
+import de.htwdd.sf.beleg.myDsl.Exquery;
+import de.htwdd.sf.beleg.myDsl.Fact;
+import de.htwdd.sf.beleg.myDsl.Folge;
+import de.htwdd.sf.beleg.myDsl.Functor;
+import de.htwdd.sf.beleg.myDsl.Ident;
+import de.htwdd.sf.beleg.myDsl.List;
 import de.htwdd.sf.beleg.myDsl.MyDslPackage;
+import de.htwdd.sf.beleg.myDsl.Nonemptylist;
+import de.htwdd.sf.beleg.myDsl.Number2;
+import de.htwdd.sf.beleg.myDsl.Predicate;
+import de.htwdd.sf.beleg.myDsl.Program;
+import de.htwdd.sf.beleg.myDsl.Prologdsl;
+import de.htwdd.sf.beleg.myDsl.Query;
+import de.htwdd.sf.beleg.myDsl.Rule;
+import de.htwdd.sf.beleg.myDsl.Term;
+import de.htwdd.sf.beleg.myDsl.Variable2;
 import de.htwdd.sf.beleg.services.MyDslGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -33,11 +48,56 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == MyDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case MyDslPackage.GREETING:
-				sequence_Greeting(context, (Greeting) semanticObject); 
+			case MyDslPackage.ATOM:
+				sequence_Atom(context, (Atom) semanticObject); 
 				return; 
-			case MyDslPackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
+			case MyDslPackage.CLAUSE:
+				sequence_Clause(context, (Clause) semanticObject); 
+				return; 
+			case MyDslPackage.EXQUERY:
+				sequence_Exquery(context, (Exquery) semanticObject); 
+				return; 
+			case MyDslPackage.FACT:
+				sequence_Fact(context, (Fact) semanticObject); 
+				return; 
+			case MyDslPackage.FOLGE:
+				sequence_Folge(context, (Folge) semanticObject); 
+				return; 
+			case MyDslPackage.FUNCTOR:
+				sequence_Functor(context, (Functor) semanticObject); 
+				return; 
+			case MyDslPackage.IDENT:
+				sequence_Ident(context, (Ident) semanticObject); 
+				return; 
+			case MyDslPackage.LIST:
+				sequence_List(context, (List) semanticObject); 
+				return; 
+			case MyDslPackage.NONEMPTYLIST:
+				sequence_Nonemptylist(context, (Nonemptylist) semanticObject); 
+				return; 
+			case MyDslPackage.NUMBER2:
+				sequence_Number2(context, (Number2) semanticObject); 
+				return; 
+			case MyDslPackage.PREDICATE:
+				sequence_Predicate(context, (Predicate) semanticObject); 
+				return; 
+			case MyDslPackage.PROGRAM:
+				sequence_Program(context, (Program) semanticObject); 
+				return; 
+			case MyDslPackage.PROLOGDSL:
+				sequence_Prologdsl(context, (Prologdsl) semanticObject); 
+				return; 
+			case MyDslPackage.QUERY:
+				sequence_Query(context, (Query) semanticObject); 
+				return; 
+			case MyDslPackage.RULE:
+				sequence_Rule(context, (Rule) semanticObject); 
+				return; 
+			case MyDslPackage.TERM:
+				sequence_Term(context, (Term) semanticObject); 
+				return; 
+			case MyDslPackage.VARIABLE2:
+				sequence_Variable2(context, (Variable2) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -46,31 +106,250 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Greeting returns Greeting
+	 *     Atom returns Atom
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (xx=Ident | xx=Number2 | xx=Variable2)
 	 */
-	protected void sequence_Greeting(ISerializationContext context, Greeting semanticObject) {
+	protected void sequence_Atom(ISerializationContext context, Atom semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Clause returns Clause
+	 *
+	 * Constraint:
+	 *     (fact=Predicate (clause1=Fact | clause1=Rule))
+	 */
+	protected void sequence_Clause(ISerializationContext context, Clause semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exquery returns Exquery
+	 *
+	 * Constraint:
+	 *     q=Query
+	 */
+	protected void sequence_Exquery(ISerializationContext context, Exquery semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.GREETING__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.GREETING__NAME));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.EXQUERY__Q) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.EXQUERY__Q));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGreetingAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getExqueryAccess().getQQueryParserRuleCall_1_0(), semanticObject.getQ());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Model returns Model
+	 *     Fact returns Fact
 	 *
 	 * Constraint:
-	 *     greetings+=Greeting+
+	 *     {Fact}
 	 */
-	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+	protected void sequence_Fact(ISerializationContext context, Fact semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Folge returns Folge
+	 *
+	 * Constraint:
+	 *     (atom=Atom atoms+=Atom*)
+	 */
+	protected void sequence_Folge(ISerializationContext context, Folge semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Functor returns Functor
+	 *
+	 * Constraint:
+	 *     func=Ident
+	 */
+	protected void sequence_Functor(ISerializationContext context, Functor semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FUNCTOR__FUNC) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FUNCTOR__FUNC));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFunctorAccess().getFuncIdentParserRuleCall_0(), semanticObject.getFunc());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Ident returns Ident
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_Ident(ISerializationContext context, Ident semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.IDENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.IDENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getIdentAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     List returns List
+	 *
+	 * Constraint:
+	 *     nel=Nonemptylist?
+	 */
+	protected void sequence_List(ISerializationContext context, List semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Nonemptylist returns Nonemptylist
+	 *
+	 * Constraint:
+	 *     (folge=Folge | (atom=Atom term=Term))
+	 */
+	protected void sequence_Nonemptylist(ISerializationContext context, Nonemptylist semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Number2 returns Number2
+	 *
+	 * Constraint:
+	 *     wert=INT
+	 */
+	protected void sequence_Number2(ISerializationContext context, Number2 semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.NUMBER2__WERT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.NUMBER2__WERT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNumber2Access().getWertINTTerminalRuleCall_0(), semanticObject.getWert());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Predicate returns Predicate
+	 *
+	 * Constraint:
+	 *     (pred=Functor t=Term t2+=Term*)
+	 */
+	protected void sequence_Predicate(ISerializationContext context, Predicate semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Program returns Program
+	 *
+	 * Constraint:
+	 *     (clause1=Clause clause2+=Clause*)
+	 */
+	protected void sequence_Program(ISerializationContext context, Program semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Prologdsl returns Prologdsl
+	 *
+	 * Constraint:
+	 *     (prologdsl=Program ex=Exquery)
+	 */
+	protected void sequence_Prologdsl(ISerializationContext context, Prologdsl semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.PROLOGDSL__PROLOGDSL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.PROLOGDSL__PROLOGDSL));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.PROLOGDSL__EX) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.PROLOGDSL__EX));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrologdslAccess().getPrologdslProgramParserRuleCall_0_0(), semanticObject.getPrologdsl());
+		feeder.accept(grammarAccess.getPrologdslAccess().getExExqueryParserRuleCall_1_0(), semanticObject.getEx());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Query returns Query
+	 *
+	 * Constraint:
+	 *     (query=Predicate pred+=Predicate*)
+	 */
+	protected void sequence_Query(ISerializationContext context, Query semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Rule returns Rule
+	 *
+	 * Constraint:
+	 *     q=Query
+	 */
+	protected void sequence_Rule(ISerializationContext context, Rule semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.RULE__Q) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.RULE__Q));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRuleAccess().getQQueryParserRuleCall_1_0(), semanticObject.getQ());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Term returns Term
+	 *
+	 * Constraint:
+	 *     (term=Atom | term=List)
+	 */
+	protected void sequence_Term(ISerializationContext context, Term semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Variable2 returns Variable2
+	 *
+	 * Constraint:
+	 *     var1=VAR
+	 */
+	protected void sequence_Variable2(ISerializationContext context, Variable2 semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.VARIABLE2__VAR1) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.VARIABLE2__VAR1));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getVariable2Access().getVar1VARTerminalRuleCall_0(), semanticObject.getVar1());
+		feeder.finish();
 	}
 	
 	

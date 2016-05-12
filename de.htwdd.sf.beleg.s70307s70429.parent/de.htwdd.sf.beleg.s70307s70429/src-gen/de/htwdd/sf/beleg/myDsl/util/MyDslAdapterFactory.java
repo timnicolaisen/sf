@@ -76,14 +76,89 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
     new MyDslSwitch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
+      public Adapter casePrologdsl(Prologdsl object)
       {
-        return createModelAdapter();
+        return createPrologdslAdapter();
       }
       @Override
-      public Adapter caseGreeting(Greeting object)
+      public Adapter caseProgram(Program object)
       {
-        return createGreetingAdapter();
+        return createProgramAdapter();
+      }
+      @Override
+      public Adapter caseExquery(Exquery object)
+      {
+        return createExqueryAdapter();
+      }
+      @Override
+      public Adapter caseQuery(Query object)
+      {
+        return createQueryAdapter();
+      }
+      @Override
+      public Adapter caseClause(Clause object)
+      {
+        return createClauseAdapter();
+      }
+      @Override
+      public Adapter caseFact(Fact object)
+      {
+        return createFactAdapter();
+      }
+      @Override
+      public Adapter caseRule(Rule object)
+      {
+        return createRuleAdapter();
+      }
+      @Override
+      public Adapter casePredicate(Predicate object)
+      {
+        return createPredicateAdapter();
+      }
+      @Override
+      public Adapter caseFunctor(Functor object)
+      {
+        return createFunctorAdapter();
+      }
+      @Override
+      public Adapter caseTerm(Term object)
+      {
+        return createTermAdapter();
+      }
+      @Override
+      public Adapter caseAtom(Atom object)
+      {
+        return createAtomAdapter();
+      }
+      @Override
+      public Adapter caseList(List object)
+      {
+        return createListAdapter();
+      }
+      @Override
+      public Adapter caseNonemptylist(Nonemptylist object)
+      {
+        return createNonemptylistAdapter();
+      }
+      @Override
+      public Adapter caseFolge(Folge object)
+      {
+        return createFolgeAdapter();
+      }
+      @Override
+      public Adapter caseIdent(Ident object)
+      {
+        return createIdentAdapter();
+      }
+      @Override
+      public Adapter caseNumber2(Number2 object)
+      {
+        return createNumber2Adapter();
+      }
+      @Override
+      public Adapter caseVariable2(Variable2 object)
+      {
+        return createVariable2Adapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -108,31 +183,256 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Model <em>Model</em>}'.
+   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Prologdsl <em>Prologdsl</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.htwdd.sf.beleg.myDsl.Model
+   * @see de.htwdd.sf.beleg.myDsl.Prologdsl
    * @generated
    */
-  public Adapter createModelAdapter()
+  public Adapter createPrologdslAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Greeting <em>Greeting</em>}'.
+   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Program <em>Program</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.htwdd.sf.beleg.myDsl.Greeting
+   * @see de.htwdd.sf.beleg.myDsl.Program
    * @generated
    */
-  public Adapter createGreetingAdapter()
+  public Adapter createProgramAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Exquery <em>Exquery</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwdd.sf.beleg.myDsl.Exquery
+   * @generated
+   */
+  public Adapter createExqueryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Query <em>Query</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwdd.sf.beleg.myDsl.Query
+   * @generated
+   */
+  public Adapter createQueryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Clause <em>Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwdd.sf.beleg.myDsl.Clause
+   * @generated
+   */
+  public Adapter createClauseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Fact <em>Fact</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwdd.sf.beleg.myDsl.Fact
+   * @generated
+   */
+  public Adapter createFactAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Rule <em>Rule</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwdd.sf.beleg.myDsl.Rule
+   * @generated
+   */
+  public Adapter createRuleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Predicate <em>Predicate</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwdd.sf.beleg.myDsl.Predicate
+   * @generated
+   */
+  public Adapter createPredicateAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Functor <em>Functor</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwdd.sf.beleg.myDsl.Functor
+   * @generated
+   */
+  public Adapter createFunctorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Term <em>Term</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwdd.sf.beleg.myDsl.Term
+   * @generated
+   */
+  public Adapter createTermAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Atom <em>Atom</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwdd.sf.beleg.myDsl.Atom
+   * @generated
+   */
+  public Adapter createAtomAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.List <em>List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwdd.sf.beleg.myDsl.List
+   * @generated
+   */
+  public Adapter createListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Nonemptylist <em>Nonemptylist</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwdd.sf.beleg.myDsl.Nonemptylist
+   * @generated
+   */
+  public Adapter createNonemptylistAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Folge <em>Folge</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwdd.sf.beleg.myDsl.Folge
+   * @generated
+   */
+  public Adapter createFolgeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Ident <em>Ident</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwdd.sf.beleg.myDsl.Ident
+   * @generated
+   */
+  public Adapter createIdentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Number2 <em>Number2</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwdd.sf.beleg.myDsl.Number2
+   * @generated
+   */
+  public Adapter createNumber2Adapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwdd.sf.beleg.myDsl.Variable2 <em>Variable2</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwdd.sf.beleg.myDsl.Variable2
+   * @generated
+   */
+  public Adapter createVariable2Adapter()
   {
     return null;
   }
